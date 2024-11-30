@@ -14,5 +14,6 @@ https://imgur.com/a/led-ring-around-analog-potentiometer-TRAZ2Tm \
 *Original reddit post:*
 https://www.reddit.com/r/diypedals/comments/180r9ei/update_potmeter_led_ring_see_somments/
 
-The documentation is very limited at the moment. If I find more time, I will definitely update :)
+The documentation is very limited at the moment. If I find more time, I will definitely update :). But feel free to contact me on Reddit:
+https://www.reddit.com/user/DasBraadwurst/
 
