@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [MCU Rat.PcbDoc]
+   Generated File[MCU Rat-RoundHoles.TXT]
+   Generated File[MCU Rat-SlotHoles.TXT]
+   Generated File[MCU Rat.LDP]
+   Generated File[MCU Rat.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 22:38:26 On 18/09/2023

@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=SCL Pin=J1-1
+Removed Pin From Net: NetName=SDA Pin=J1-2
+Removed Pin From Net: NetName=AD Pin=J2-1
+Removed Member From Class: ClassName=Top Member=J2
+Change Component Footprint: Designator=J1 Old Footprint=02X01_Header_2.54mm_MAL New Footprint=05X01_HEADER_2.54MM_MAL
+Change Component Comment : Designator=J1 Old Comment=Pin_Header_02x01 New Comment=Pin_Header_05x01
+Added Pin To Net: NetName=AD Pin=J1-1
+Added Pin To Net: NetName=SCL Pin=J1-2
+Added Pin To Net: NetName=SDA Pin=J1-3
+Added Pin To Net: NetName=GND Pin=J1-4
+Added Pin To Net: NetName=+3.3V Pin=J1-5
+Added Pin To Net: NetName=+3.3V Pin=U1-3

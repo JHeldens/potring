@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [Pot_Rat.PcbDoc]
+   Generated File[Pot_Rat.TXT]
+   Generated File[Pot_Rat.LDP]
+   Generated File[Pot_Rat.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 01:14:47 On 16/09/2023

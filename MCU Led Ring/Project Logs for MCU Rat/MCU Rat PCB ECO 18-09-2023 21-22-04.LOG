@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=NetC12_2 Pin=R7-2
+Change Component Footprint: Designator=R7 Old Footprint=RES_0805 New Footprint=RES_0603
+Change Component Comment : Designator=R7 Old Comment=270 New Comment=RES
+Change component parameters: Designator = "R7" ("R7"); Footprint = "RES_0805"; UniqueID = "\NBZJPICH" ("\NBZJPICH")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "270"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC12_2 Pin=R7-1
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=NetR7_2 Pin=U1-6
+Added Net: Name=NetR7_2

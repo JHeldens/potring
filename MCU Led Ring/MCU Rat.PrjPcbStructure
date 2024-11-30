@@ -1,0 +1,2 @@
+Record=TopLevelDocument|FileName=Top.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_Supply-STM32|SchDesignator=U_Supply-STM32|FileName=Supply-STM32.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=Supply-STM32.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

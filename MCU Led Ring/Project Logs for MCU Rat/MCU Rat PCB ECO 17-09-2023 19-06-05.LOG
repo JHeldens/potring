@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=+3.3V Pin=U2-2
+Added Component: Designator=MH1(Hole_M3)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH2(Hole_M3)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH3(Hole_M3)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH4(Hole_M3)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB1(TRIAN SOLDERBRIDGE)
+Added Pin To Net: NetName=+3.3V Pin=SB1-2
+Added Pin To Net: NetName=NetSB1_1 Pin=SB1-1
+Added Pin To Net: NetName=NetSB1_1 Pin=U2-2
+Added Net: Name=NetSB1_1
+Added Member To Class: ClassName=Top Member=Component MH1 Hole_M3
+Added Member To Class: ClassName=Top Member=Component MH2 Hole_M3
+Added Member To Class: ClassName=Top Member=Component MH3 Hole_M3
+Added Member To Class: ClassName=Top Member=Component MH4 Hole_M3
+Added Member To Class: ClassName=Top Member=Component SB1 Solderbridge

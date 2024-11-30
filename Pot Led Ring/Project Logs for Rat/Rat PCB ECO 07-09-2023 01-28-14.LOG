@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=NetD19_1 Pin=U1-7
+Added Component: Designator=D28(LED_0805)
+Added Component: Designator=D29(LED_0805)
+Added Component: Designator=D30(LED_0805)
+Added Component: Designator=D31(LED_0805)
+Added Component: Designator=D32(LED_0805)
+Added Component: Designator=D33(LED_0805)
+Added Component: Designator=D34(LED_0805)
+Added Component: Designator=D35(LED_0805)
+Added Component: Designator=D36(LED_0805)
+Added Pin To Net: NetName=NetD2_2 Pin=D28-2
+Added Pin To Net: NetName=NetD3_2 Pin=D29-2
+Added Pin To Net: NetName=NetD4_2 Pin=D30-2
+Added Pin To Net: NetName=NetD5_2 Pin=D31-2
+Added Pin To Net: NetName=NetD6_2 Pin=D32-2
+Added Pin To Net: NetName=NetD7_2 Pin=D33-2
+Added Pin To Net: NetName=NetD8_2 Pin=D34-2
+Added Pin To Net: NetName=NetD1_2 Pin=D35-2
+Added Pin To Net: NetName=NetD9_2 Pin=D36-2
+Added Pin To Net: NetName=NetD28_1 Pin=D28-1
+Added Pin To Net: NetName=NetD28_1 Pin=D29-1
+Added Pin To Net: NetName=NetD28_1 Pin=D30-1
+Added Pin To Net: NetName=NetD28_1 Pin=D31-1
+Added Pin To Net: NetName=NetD28_1 Pin=D32-1
+Added Pin To Net: NetName=NetD28_1 Pin=D33-1
+Added Pin To Net: NetName=NetD28_1 Pin=D34-1
+Added Pin To Net: NetName=NetD28_1 Pin=D35-1
+Added Pin To Net: NetName=NetD28_1 Pin=D36-1
+Added Pin To Net: NetName=NetD28_1 Pin=U1-10
+Added Net: Name=NetD28_1
+Added Member To Class: ClassName=Top Member=Component D28 LED
+Added Member To Class: ClassName=Top Member=Component D29 LED
+Added Member To Class: ClassName=Top Member=Component D30 LED
+Added Member To Class: ClassName=Top Member=Component D31 LED
+Added Member To Class: ClassName=Top Member=Component D32 LED
+Added Member To Class: ClassName=Top Member=Component D33 LED
+Added Member To Class: ClassName=Top Member=Component D34 LED
+Added Member To Class: ClassName=Top Member=Component D35 LED
+Added Member To Class: ClassName=Top Member=Component D36 LED

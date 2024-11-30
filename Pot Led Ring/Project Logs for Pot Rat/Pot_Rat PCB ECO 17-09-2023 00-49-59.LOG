@@ -1,0 +1,40 @@
+Added Component: Designator=D11(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D12(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D13(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D14(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D15(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=C1 Pin=D11-1
+Added Pin To Net: NetName=R3 Pin=D11-2
+Added Pin To Net: NetName=C2 Pin=D12-1
+Added Pin To Net: NetName=R3 Pin=D12-2
+Added Pin To Net: NetName=C3 Pin=D13-1
+Added Pin To Net: NetName=R3 Pin=D13-2
+Added Pin To Net: NetName=C4 Pin=D14-1
+Added Pin To Net: NetName=R3 Pin=D14-2
+Added Pin To Net: NetName=C5 Pin=D15-1
+Added Pin To Net: NetName=R3 Pin=D15-2
+Added Member To Class: ClassName=Top Member=Component D11 LED
+Added Member To Class: ClassName=Top Member=Component D12 LED
+Added Member To Class: ClassName=Top Member=Component D13 LED
+Added Member To Class: ClassName=Top Member=Component D14 LED
+Added Member To Class: ClassName=Top Member=Component D15 LED

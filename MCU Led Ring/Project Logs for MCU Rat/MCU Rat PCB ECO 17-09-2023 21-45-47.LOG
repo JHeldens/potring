@@ -1,0 +1,43 @@
+Added Component: Designator=J9(USB4105-GF-A)
+Add component (AddParameter): Name = "Distributor"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = "640-USB4105-GF-A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = "USB4105-GF-A"; VariantName = "[No Variations]"
+Added Component: Designator=R4(RES_1206)
+Add component (AddParameter): Name = "Distributor"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = "652-CHV1206JW105EST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = "CHV1206-JW-105EST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1M"; VariantName = "[No Variations]"
+Added Component: Designator=R5(RES_0603)
+Add component (AddParameter): Name = "Distributor"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = "755-SDR03EZPF5101"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = "SDR03EZPF5101"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "5.1K"; VariantName = "[No Variations]"
+Added Component: Designator=R6(RES_0603)
+Add component (AddParameter): Name = "Distributor"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = "755-SDR03EZPF5101"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = "SDR03EZPF5101"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "5.1K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J9-A1
+Added Pin To Net: NetName=GND Pin=J9-A1
+Added Pin To Net: NetName=+9V Pin=J9-A4
+Added Pin To Net: NetName=+9V Pin=J9-A4
+Added Pin To Net: NetName=GND Pin=R4-2
+Added Pin To Net: NetName=GND Pin=R5-1
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=NetJ9_A5 Pin=J9-A5
+Added Pin To Net: NetName=NetJ9_A5 Pin=R6-2
+Added Net: Name=NetJ9_A5
+Added Pin To Net: NetName=NetJ9_A6 Pin=J9-A6
+Added Pin To Net: NetName=NetJ9_A6 Pin=R4-1
+Added Net: Name=NetJ9_A6
+Added Pin To Net: NetName=NetJ9_B5 Pin=J9-B5
+Added Pin To Net: NetName=NetJ9_B5 Pin=R5-2
+Added Net: Name=NetJ9_B5
+Added Member To Class: ClassName=Top Member=Component J9 USB4105-GF-A
+Added Member To Class: ClassName=Top Member=Component R4 RES
+Added Member To Class: ClassName=Top Member=Component R5 RES
+Added Member To Class: ClassName=Top Member=Component R6 RES

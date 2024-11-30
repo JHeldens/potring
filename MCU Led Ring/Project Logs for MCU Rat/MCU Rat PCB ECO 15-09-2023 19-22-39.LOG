@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=PBUT0 Pin=U1-28
+Removed Pin From Net: NetName=PBUT1 Pin=U1-29
+Removed Pin From Net: NetName=PBUT2 Pin=U1-30
+Added Pin To Net: NetName=PBUT2 Pin=U1-14
+Added Pin To Net: NetName=PBUT1 Pin=U1-15
+Added Pin To Net: NetName=PBUT0 Pin=U1-16

@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Pot_Rat.PcbDoc   18/09/2023  22:55:21
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Pot_Rat.TXT
+ASCII RectHoles File : Pot_Rat-RectHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.3mm (12mil)                                             Round             64        PTH        216.34mm (8.52inch)
+T2      1mm (39mil)                                               Round             16        PTH        140.72mm (5.54inch)
+T3      1.1mm (43mil)                                             Round             4         PTH        14.29mm (0.56inch)
+T4      2mm (79mil)                                               Round             8         PTH        126.23mm (4.97inch)
+T5      2.3mm (91mil)                                             Rectangle         1         PTH        0.70mm (0.03inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              93
+
+Total Processing Time (hh:mm:ss) : 00:00:00

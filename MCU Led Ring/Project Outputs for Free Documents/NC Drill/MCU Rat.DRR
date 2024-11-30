@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: MCU Rat.PcbDoc   18/09/2023  22:38:26
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MCU Rat-RoundHoles.TXT
+ASCII SlotHoles File : MCU Rat-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.3mm (12mil)                                             Round             51        PTH        292.06mm (11.50inch)
+T2      0.5mm (20mil)                                             Round             1         PTH        0.00mm (0.00inch)
+T3      0.6mm (24mil)                                             Slot              4         PTH        38.14mm (1.50inch)
+T4      0.65mm (26mil)                                            Round             2         PTH        5.78mm (0.23inch)
+T5      0.991mm (39mil)                                           Round             3         PTH        7.21mm (0.28inch)
+T6      1.1mm (43mil)                                             Round             4         PTH        7.62mm (0.30inch)
+T7      1.3mm (51mil)                                             Round             8         PTH        36.50mm (1.44inch)
+T8      2mm (79mil)                                               Round             8         PTH        171.49mm (6.75inch)
+T9      2.375mm (94mil)                                           Round             4         PTH        12.70mm (0.50inch)
+T10     3mm (118mil)                                              Round             3         PTH        71.04mm (2.80inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              88
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,0 +1,50 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Rat\Project Outputs for Pot Rat\Pick Place\Pick Place for Pot_Rat.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       16/09/23
+Time:       01:31
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment                Layer       Footprint                 Center-X(mil) Center-Y(mil) Rotation      Description          
+J7         Castellated_Pads_04x01 TopLayer    04X01_Castellated_Pad_1MM 321.457       1947.244      0             ""                   
+J2         ADDRESS-4LVL           BottomLayer ADDRESS-4LVL              -254.384      1137.386      90            ""                   
+J6         Castellated_Pads_04x01 TopLayer    04X01_Castellated_Pad_1MM 321.457       29.331        0             ""                   
+J1         Castellated_Pads_04x01 TopLayer    04X01_Castellated_Pad_1MM 1129.134      1138.189      90            ""                   
+J3         Castellated_Pads_04x01 TopLayer    04X01_Castellated_Pad_1MM -486.221      1138.189      90            ""                   
+J5         Pin_Header_01x01       TopLayer    01x01_Header_2.54mm_MAL   422.809       371.898       0             ""                   
+D7         LED                    TopLayer    LED_0805                  361.511       530.894       93.6000130945 ""                   
+J4         Pin_Header_03x01       TopLayer    03x01_Header_5mm_MAL_DOWN 321.457       232.677       0             ""                   
+TP2        "Testpoint 2mm"        BottomLayer TESTPOINT                 746.654       720.866       180           ""                   
+TP1        "Testpoint 2mm"        BottomLayer TESTPOINT                 868.076       862.572       180           ""                   
+U1         IS31FL3728             TopLayer    QFN50P395X400X80_HS-25N   636.417       1027.953      179.709259182 "8x8 IIC Led Driver" 
+D25        LED                    TopLayer    LED_0805                  914.258       1291.685      194.400000572 ""                   
+D24        LED                    TopLayer    LED_0805                  857.948       1433.909      208.800005243 ""                   
+D23        LED                    TopLayer    LED_0805                  768.037       1557.661      223.200003329 ""                   
+D22        LED                    TopLayer    LED_0805                  650.174       1655.165      237.599994659 ""                   
+D21        LED                    TopLayer    LED_0805                  511.767       1720.295      251.999991712 ""                   
+D20        LED                    TopLayer    LED_0805                  361.511       1748.958      266.399991705 ""                   
+D19        LED                    TopLayer    LED_0805                  208.847       1739.353      280.800010681 ""                   
+D18        LED                    TopLayer    LED_0805                  63.368        1692.084      295.199997487 ""                   
+D17        LED                    TopLayer    LED_0805                  -65.786       1610.121      309.599999133 ""                   
+D16        LED                    TopLayer    LED_0805                  -170.498      1498.614      323.999984741 ""                   
+D15        LED                    TopLayer    LED_0805                  -244.190      1364.569      338.399985609 ""                   
+D14        LED                    TopLayer    LED_0805                  -282.231      1216.409      352.799996926 ""                   
+D13        LED                    TopLayer    LED_0805                  -282.231      1063.443      7.19999694824 ""                   
+D12        LED                    TopLayer    LED_0805                  -244.190      915.283       21.6000266494 ""                   
+D11        LED                    TopLayer    LED_0805                  -170.498      781.238       36.0000082878 ""                   
+D10        LED                    TopLayer    LED_0805                  -65.786       669.731       50.3999938965 ""                   
+D9         LED                    TopLayer    LED_0805                  63.368        587.768       64.8000016988 ""                   
+D8         LED                    TopLayer    LED_0805                  208.847       540.499       79.1999947566 ""                   
+D6         LED                    TopLayer    LED_0805                  511.767       559.557       108.000007787 ""                   
+D5         LED                    TopLayer    LED_0805                  650.174       624.686       122.400005999 ""                   
+D4         LED                    TopLayer    LED_0805                  768.037       722.190       136.799999237 ""                   
+D3         LED                    TopLayer    LED_0805                  857.948       845.942       151.199993001 ""                   
+D2         LED                    TopLayer    LED_0805                  914.258       988.166       165.599999144 ""                   
+D1         LED                    TopLayer    LED_0805                  933.430       1139.926      180           ""                   
+C2         CAP                    TopLayer    CAP_0603                  577.747       1229.874      0             ""                   
+C1         CAP                    TopLayer    CAP_0603                  577.747       1166.881      0             ""                   

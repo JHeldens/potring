@@ -1,0 +1,79 @@
+Removed Pin From Net: NetName=NetD1_1 Pin=D6-1
+Removed Pin From Net: NetName=NetD1_1 Pin=D7-1
+Removed Pin From Net: NetName=NetD1_1 Pin=D8-1
+Removed Pin From Net: NetName=NetD1_1 Pin=D9-1
+Removed Pin From Net: NetName=NetD10_1 Pin=D10-1
+Removed Pin From Net: NetName=NetD10_1 Pin=D16-1
+Removed Pin From Net: NetName=NetD10_1 Pin=D17-1
+Removed Pin From Net: NetName=NetD10_1 Pin=D18-1
+Removed Pin From Net: NetName=NetD19_1 Pin=D19-1
+Removed Pin From Net: NetName=NetD19_1 Pin=D20-1
+Removed Pin From Net: NetName=NetD19_1 Pin=D26-1
+Removed Pin From Net: NetName=NetD19_1 Pin=D27-1
+Removed Pin From Net: NetName=NetD10_1 Pin=U1-8
+Removed Pin From Net: NetName=NetD1_1 Pin=U1-9
+Removed Member From Class: ClassName=Top Member=D26
+Removed Member From Class: ClassName=Top Member=D27
+Removed Member From Class: ClassName=Top Member=D28
+Removed Member From Class: ClassName=Top Member=D29
+Removed Member From Class: ClassName=Top Member=D30
+Removed Member From Class: ClassName=Top Member=D31
+Removed Member From Class: ClassName=Top Member=D32
+Removed Member From Class: ClassName=Top Member=D33
+Removed Member From Class: ClassName=Top Member=D34
+Removed Member From Class: ClassName=Top Member=D35
+Removed Member From Class: ClassName=Top Member=D36
+Added Pin To Net: NetName=NetD19_1 Pin=U1-7
+Added Pin To Net: NetName=NetD10_1 Pin=U1-9
+Added Pin To Net: NetName=NetD1_1 Pin=U1-12
+Change Net Name : Old Net Name=NetD10_1 New Net Name=R3
+Change Net Name : Old Net Name=NetD19_1 New Net Name=R1
+Added Pin To Net: NetName=C1 Pin=D1-2
+Added Pin To Net: NetName=C1 Pin=D6-2
+Added Pin To Net: NetName=C1 Pin=D11-2
+Added Pin To Net: NetName=C1 Pin=D16-2
+Added Pin To Net: NetName=C1 Pin=D21-2
+Added Pin To Net: NetName=C1 Pin=U1-24
+Added Net: Name=C1
+Added Pin To Net: NetName=C2 Pin=D2-2
+Added Pin To Net: NetName=C2 Pin=D7-2
+Added Pin To Net: NetName=C2 Pin=D12-2
+Added Pin To Net: NetName=C2 Pin=D17-2
+Added Pin To Net: NetName=C2 Pin=D22-2
+Added Pin To Net: NetName=C2 Pin=U1-23
+Added Net: Name=C2
+Added Pin To Net: NetName=C3 Pin=D3-2
+Added Pin To Net: NetName=C3 Pin=D8-2
+Added Pin To Net: NetName=C3 Pin=D13-2
+Added Pin To Net: NetName=C3 Pin=D18-2
+Added Pin To Net: NetName=C3 Pin=D23-2
+Added Pin To Net: NetName=C3 Pin=U1-22
+Added Net: Name=C3
+Added Pin To Net: NetName=C4 Pin=D4-2
+Added Pin To Net: NetName=C4 Pin=D9-2
+Added Pin To Net: NetName=C4 Pin=D14-2
+Added Pin To Net: NetName=C4 Pin=D19-2
+Added Pin To Net: NetName=C4 Pin=D24-2
+Added Pin To Net: NetName=C4 Pin=U1-21
+Added Net: Name=C4
+Added Pin To Net: NetName=C5 Pin=D5-2
+Added Pin To Net: NetName=C5 Pin=D10-2
+Added Pin To Net: NetName=C5 Pin=D15-2
+Added Pin To Net: NetName=C5 Pin=D20-2
+Added Pin To Net: NetName=C5 Pin=D25-2
+Added Pin To Net: NetName=C5 Pin=U1-19
+Added Net: Name=C5
+Added Pin To Net: NetName=R2 Pin=D16-1
+Added Pin To Net: NetName=R2 Pin=D17-1
+Added Pin To Net: NetName=R2 Pin=D18-1
+Added Pin To Net: NetName=R2 Pin=D19-1
+Added Pin To Net: NetName=R2 Pin=D20-1
+Added Pin To Net: NetName=R2 Pin=U1-8
+Added Net: Name=R2
+Added Pin To Net: NetName=R4 Pin=D6-1
+Added Pin To Net: NetName=R4 Pin=D7-1
+Added Pin To Net: NetName=R4 Pin=D8-1
+Added Pin To Net: NetName=R4 Pin=D9-1
+Added Pin To Net: NetName=R4 Pin=D10-1
+Added Pin To Net: NetName=R4 Pin=U1-10
+Added Net: Name=R4

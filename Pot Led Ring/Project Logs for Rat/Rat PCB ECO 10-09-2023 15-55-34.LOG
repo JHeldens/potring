@@ -1,0 +1,10 @@
+Added Component: Designator=TP1(TESTPOINT)
+Added Component: Designator=TP2(TESTPOINT)
+Added Pin To Net: NetName=NetTP1_1 Pin=TP1-1
+Added Pin To Net: NetName=NetTP1_1 Pin=U1-4
+Added Net: Name=NetTP1_1
+Added Pin To Net: NetName=NetTP2_1 Pin=TP2-1
+Added Pin To Net: NetName=NetTP2_1 Pin=U1-5
+Added Net: Name=NetTP2_1
+Added Member To Class: ClassName=Top Member=Component TP1 Testpoint 2mm
+Added Member To Class: ClassName=Top Member=Component TP2 Testpoint 2mm

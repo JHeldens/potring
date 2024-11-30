@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=J1 Old Footprint=05X01_HEADER_2.54MM_MAL_ANGLE New Footprint=Castellated Pad 1MM
+Change Component Comment : Designator=J1 Old Comment=Pin_Header_05x01 New Comment=Castellated_Pads_05x01
+Change component parameters: Designator = "J1" ("J1"); Footprint = "05X01_HEADER_2.54MM_MAL_ANGLE"; UniqueID = "\FGCYFYLL" ("\FGCYFYLL")

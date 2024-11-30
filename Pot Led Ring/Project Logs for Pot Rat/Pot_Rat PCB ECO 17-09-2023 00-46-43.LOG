@@ -1,0 +1,24 @@
+Added Component: Designator=D21(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D22(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D23(LED_0805)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=C1 Pin=D21-1
+Added Pin To Net: NetName=R1 Pin=D21-2
+Added Pin To Net: NetName=C2 Pin=D22-1
+Added Pin To Net: NetName=R1 Pin=D22-2
+Added Pin To Net: NetName=C3 Pin=D23-1
+Added Pin To Net: NetName=R1 Pin=D23-2
+Added Member To Class: ClassName=Top Member=Component D21 LED
+Added Member To Class: ClassName=Top Member=Component D22 LED
+Added Member To Class: ClassName=Top Member=Component D23 LED

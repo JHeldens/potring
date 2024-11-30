@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=AD Pin=J1-1
+Removed Pin From Net: NetName=SCL Pin=J1-2
+Removed Pin From Net: NetName=SDA Pin=J1-3
+Removed Pin From Net: NetName=GND Pin=J1-4
+Removed Pin From Net: NetName=+3.3V Pin=J1-5
+Removed Member From Class: ClassName=Top Member=J1
+Added Component: Designator=J?(05X01_HEADER_2.54MM_MAL_ANGLE)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AD Pin=J?-1
+Added Pin To Net: NetName=SCL Pin=J?-2
+Added Pin To Net: NetName=SDA Pin=J?-3
+Added Pin To Net: NetName=GND Pin=J?-4
+Added Pin To Net: NetName=+3.3V Pin=J?-5
+Added Member To Class: ClassName=Top Member=Component J? Pin_Header_05x01

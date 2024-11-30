@@ -1,0 +1,17 @@
+Added Component: Designator=R8(RES_0603)
+Add component (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1.5K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=R8-2
+Added Pin To Net: NetName=USBD_N Pin=J9-A7
+Added Pin To Net: NetName=USBD_N Pin=J9-B7
+Added Pin To Net: NetName=USBD_N Pin=U1-32
+Added Net: Name=USBD_N
+Added Pin To Net: NetName=USBD_P Pin=J9-A6
+Added Pin To Net: NetName=USBD_P Pin=J9-B6
+Added Pin To Net: NetName=USBD_P Pin=R8-1
+Added Pin To Net: NetName=USBD_P Pin=U1-33
+Added Net: Name=USBD_P
+Added Member To Class: ClassName=Top Member=Component R8 RES

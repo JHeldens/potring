@@ -1,0 +1,24 @@
+Added Component: Designator=J6(04X01_Castellated_Pad_1MM)
+Added Component: Designator=MH3(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH4(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH5(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH6(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH7(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH8(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=SCL Pin=J6-1
+Added Pin To Net: NetName=SDA Pin=J6-2
+Added Pin To Net: NetName=GND Pin=J6-3
+Added Pin To Net: NetName=+3.3V Pin=J6-4
+Added Member To Class: ClassName=Top Member=Component J6 Castellated_Pads_04x01
+Added Member To Class: ClassName=Top Member=Component MH3 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH4 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH5 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH6 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH7 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH8 Hole_M2

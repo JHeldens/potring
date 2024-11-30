@@ -1,0 +1,6 @@
+Added Component: Designator=J2(04X01_PADS_2.54MM)
+Added Pin To Net: NetName=SCL Pin=J2-1
+Added Pin To Net: NetName=SDA Pin=J2-2
+Added Pin To Net: NetName=GND Pin=J2-3
+Added Pin To Net: NetName=+3.3V Pin=J2-4
+Added Member To Class: ClassName=Top Member=Component J2 Pads_04x01

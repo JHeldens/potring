@@ -1,0 +1,138 @@
+Removed Pin From Net: NetName=R4 Pin=D8-z
+Change component parameters: Designator = "D1" ("D1"); Footprint = "LED_0805"; UniqueID = "\GOGEHOSE" ("\GOGEHOSE")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D2" ("D2"); Footprint = "LED_0805"; UniqueID = "\KNDGCAGP" ("\KNDGCAGP")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D3" ("D3"); Footprint = "LED_0805"; UniqueID = "\FMNJYIEA" ("\FMNJYIEA")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D4" ("D4"); Footprint = "LED_0805"; UniqueID = "\PXVPTPRK" ("\PXVPTPRK")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D5" ("D5"); Footprint = "LED_0805"; UniqueID = "\TEXOKCNM" ("\TEXOKCNM")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D6" ("D6"); Footprint = "LED_0805"; UniqueID = "\XAUMVLVE" ("\XAUMVLVE")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D7" ("D7"); Footprint = "LED_0805"; UniqueID = "\CYNFIEUG" ("\CYNFIEUG")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D8" ("D8"); Footprint = "LED_0805"; UniqueID = "\XNCXHNNS" ("\XNCXHNNS")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D9" ("D9"); Footprint = "LED_0805"; UniqueID = "\GVMLCENN" ("\GVMLCENN")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D10" ("D10"); Footprint = "LED_0805"; UniqueID = "\VYKEJLRN" ("\VYKEJLRN")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D11" ("D11"); Footprint = "LED_0805"; UniqueID = "\AGFUKBEN" ("\AGFUKBEN")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D12" ("D12"); Footprint = "LED_0805"; UniqueID = "\NISMFMZL" ("\NISMFMZL")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D13" ("D13"); Footprint = "LED_0805"; UniqueID = "\LRGQVESD" ("\LRGQVESD")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D14" ("D14"); Footprint = "LED_0805"; UniqueID = "\QMPLIXZO" ("\QMPLIXZO")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D15" ("D15"); Footprint = "LED_0805"; UniqueID = "\XGEAUMBD" ("\XGEAUMBD")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D16" ("D16"); Footprint = "LED_0805"; UniqueID = "\QEPTOEHB" ("\QEPTOEHB")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D17" ("D17"); Footprint = "LED_0805"; UniqueID = "\UTZMNAPP" ("\UTZMNAPP")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D18" ("D18"); Footprint = "LED_0805"; UniqueID = "\YEYVRQWT" ("\YEYVRQWT")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D19" ("D19"); Footprint = "LED_0805"; UniqueID = "\AUSYNCVX" ("\AUSYNCVX")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D20" ("D20"); Footprint = "LED_0805"; UniqueID = "\VOESGTVW" ("\VOESGTVW")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D21" ("D21"); Footprint = "LED_0805"; UniqueID = "\IGPKPXFI" ("\IGPKPXFI")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D22" ("D22"); Footprint = "LED_0805"; UniqueID = "\ZUMFKNVN" ("\ZUMFKNVN")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D23" ("D23"); Footprint = "LED_0805"; UniqueID = "\DLGIZCSU" ("\DLGIZCSU")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D24" ("D24"); Footprint = "LED_0805"; UniqueID = "\TUZNCITB" ("\TUZNCITB")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D25" ("D25"); Footprint = "LED_0805"; UniqueID = "\JNRNXYAZ" ("\JNRNXYAZ")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ROHM Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "SMLMN2WB1CW1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U1" ("U1"); Footprint = "QFN50P395X400X80_HS-25N"; UniqueID = "\VDTEVCRV" ("\VDTEVCRV")
+Change component parameters (AddParameter): Name = "Distributor"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Distributor Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "ISSI"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Number"; Value = "IS31FL3728"; VariantName = "[No Variations]"
+Added Component: Designator=J6(04X01_Castellated_Pad_1MM)
+Add Pin To Net: Unknown Pin: Pin D8-2
+Added Pin To Net: NetName=SCL Pin=J6-1
+Added Pin To Net: NetName=SDA Pin=J6-2
+Added Pin To Net: NetName=GND Pin=J6-3
+Added Pin To Net: NetName=+3.3V Pin=J6-4
+Added Member To Class: ClassName=Top Member=Component J6 Castellated_Pads_04x01

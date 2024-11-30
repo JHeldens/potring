@@ -1,0 +1,6 @@
+Added Component: Designator=MH7(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=MH8(Hole_M2)
+Add component (AddParameter): Name = "Manufacturer Number"; Value = ""; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Top Member=Component MH7 Hole_M2
+Added Member To Class: ClassName=Top Member=Component MH8 Hole_M2

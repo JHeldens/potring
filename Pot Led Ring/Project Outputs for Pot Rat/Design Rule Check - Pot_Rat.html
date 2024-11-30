@@ -1,0 +1,850 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">18/09/2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">22:54:30</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc">C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">32</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">134</td></tr>
+</table>
+</td>
+</table><a name="IDS225RYKVVB34D25NWCEV4GQ0DB021MEAIR2IAPHP2YK31RH2UZUI"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWHN1YK03OP5OMHHXD44H2N5LNP4Y2BZ5DUUUHJGL4XYECOK4KJIB">Zero hole size multi-layer pad(s) detected</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDO2PHWRKSP1ZKH1RTOI3RT221S1NQ1TUW0TA0TDCQUOFL1PGKDM">Multilayer Pads with 0 size Hole found</a></td>
+<td class="column2">16</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">32</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAUH4KZ3SV3LRE13AKWQA5J511CFIUTLZICKGVMHPBSQZ04F3C12N">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">57</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMK23SSVQTJRYBB04R2E40K1YIFUBJES4GFDHRVOZT1HRYAZ2G">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">19</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSOEFH14U1H1IFWQBFOA0JIWBOBYFKRJT4EQU1MCYQS0XY5D3TKAF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5YJGVBWURKZYKENROY3G5ONXOZPVSE45S3AKFBS0R2R5RNVRJ1D">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEWBYZ5WBX0E0NTI2PSDYU3D2WPHL4L0EK00PZJD5T3LL2R4L3N1">Width Constraint (Min=0.254mm) (Max=1mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNLNYYNQJ3MF3NFRSOW1EOV4DXBQUD3PIISMFFB0YU4SHXNLKYUG">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTP50MSFFGMJ2KP3DG0KKC5IIWF0TC3ADVULKSTKQV5Q5JM1HBWEJ">Hole Size Constraint (Min=0.025mm) (Max=10mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYJHOJKOKRQR5CBJQPL2ABUFXSJXQEZS1CCGFXYPKNIKV2WVTZB5B">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID05GNOYSPQOERG14VD1ETBDYTCD3Z0042AQRGTGDEKFAKOXTOI2DO">Minimum Solder Mask Sliver (Gap=0.001mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWHWDK3QZI5VLD024INZS3CWV0IV01NHBQUUHUCPJ0XUZA2WACR2">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">58</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLQL5LCU0UW0TCX0VXUFN0OEVQGBKYUKLZXINJTGZGKPR211CDUOH">Silk to Silk (Clearance=0.168mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRPGK5J1RMTAXCOVJDSTAK33JDCU5FMSV0EBJACL5XAAY0TCBV3MI">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0EFXPISXDQPKGKDAVGKI4UXWHGBC2KLJ2BXJH2GU52UKMV31I34J">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">134</td>
+</tr>
+</table><br><a name="IDM0KXC3RWP4VZMPZPWMYZ1LJOSEQFARFQTCYQKHJSLESX53ZEEOHB"><h2>Warnings</h2></a><a name="IDWHN1YK03OP5OMHHXD44H2N5LNP4Y2BZ5DUUUHJGL4XYECOK4KJIB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Zero hole size multi-layer pad(s) detected</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-4(3.81mm,20.05mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net +3.3V</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-3(0.19mm,20.05mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-2(-1.81mm,20.05mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SDA</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-1(-3.81mm,20.05mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SCL</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-4(3.81mm,-27.665mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net +3.3V</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-3(0.19mm,-27.665mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SDA</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SCL</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3274.184mil|Location2.Y=3321.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3274.184mil|Location2.Y=3321.554mil|Absolute=True">Pad J1-4(20.015mm,3.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net +3.3V</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True">Pad J1-3(20.015mm,0.19mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True">Pad J1-2(20.015mm,-1.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SDA</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=2974.184mil|Location2.Y=3021.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=2974.184mil|Location2.Y=3021.554mil|Absolute=True">Pad J1-1(20.015mm,-3.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SCL</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=2974.184mil|Location2.Y=3021.555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=2974.184mil|Location2.Y=3021.555mil|Absolute=True">Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SCL</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True">Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3991.452mil|Absolute=True">Net SDA</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True">Pad J3-3(-20.015mm,0.19mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3274.184mil|Location2.Y=3321.555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3274.184mil|Location2.Y=3321.555mil|Absolute=True">Pad J3-4(-20.015mm,3.81mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=4776.476mil|Location1.Y=2005.484mil|Location2.Y=3990.452mil|Absolute=True">Net +3.3V</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDO2PHWRKSP1ZKH1RTOI3RT221S1NQ1TUW0TA0TDCQUOFL1PGKDM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Multilayer Pads with 0 size Hole found</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-4(3.81mm,20.05mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-3(0.19mm,20.05mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-2(-1.81mm,20.05mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=3884.027mil|Location2.Y=3990.452mil|Absolute=True">Pad J7-1(-3.81mm,20.05mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.586mil|Location2.X=4108.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-4(3.81mm,-27.665mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.066mil|Location2.X=3966.436mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-3(0.19mm,-27.665mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.326mil|Location2.X=3887.696mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.586mil|Location2.X=3808.956mil|Location1.Y=2005.484mil|Location2.Y=2111.909mil|Absolute=True">Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3274.184mil|Location2.Y=3321.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3274.184mil|Location2.Y=3321.554mil|Absolute=True">Pad J1-4(20.015mm,3.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True">Pad J1-3(20.015mm,0.19mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True">Pad J1-2(20.015mm,-1.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=2974.184mil|Location2.Y=3021.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4670.051mil|Location2.X=4776.476mil|Location1.Y=2974.184mil|Location2.Y=3021.554mil|Absolute=True">Pad J1-1(20.015mm,-3.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=2974.184mil|Location2.Y=3021.555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=2974.184mil|Location2.Y=3021.555mil|Absolute=True">Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3052.925mil|Location2.Y=3100.295mil|Absolute=True">Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3131.665mil|Location2.Y=3179.035mil|Absolute=True">Pad J3-3(-20.015mm,0.19mm) on Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3274.184mil|Location2.Y=3321.555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.066mil|Location2.X=3200.492mil|Location1.Y=3274.184mil|Location2.Y=3321.555mil|Absolute=True">Pad J3-4(-20.015mm,3.81mm) on Multi-Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAUH4KZ3SV3LRE13AKWQA5J511CFIUTLZICKGVMHPBSQZ04F3C12N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,0.19mm) on Multi-Layer And Pad J1-3(20.015mm,0.19mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,0.19mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,-1.81mm) on Multi-Layer And Pad J1-2(20.015mm,-1.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,-1.81mm) on Multi-Layer And Track (18.112mm,-1.783mm)(20.838mm,-1.783mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,-1.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,-3.81mm) on Multi-Layer And Pad J1-1(20.015mm,-3.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.351mil|Location2.X=4775.6mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,3.81mm) on Multi-Layer And Pad J1-4(20.015mm,3.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,3.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-(21.265mm,-3.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=2975.06mil|Location2.Y=2981.309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=2975.06mil|Location2.Y=2981.309mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-1(20.015mm,-3.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3053.8mil|Location2.Y=3060.049mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3053.8mil|Location2.Y=3060.049mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-2(20.015mm,-1.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3132.54mil|Location2.Y=3138.789mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3132.54mil|Location2.Y=3138.789mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-3(20.015mm,0.19mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3275.06mil|Location2.Y=3281.309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.349mil|Location2.X=4775.598mil|Location1.Y=3275.06mil|Location2.Y=3281.309mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J1-4(20.015mm,3.81mm) on Multi-Layer And Track (21.265mm,-6.851mm)(21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,0.19mm) on Multi-Layer And Pad J3-3(-20.015mm,0.19mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3152.225mil|Location2.Y=3158.474mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,0.19mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,-1.81mm) on Multi-Layer And Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3073.485mil|Location2.Y=3079.734mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,-1.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,-3.81mm) on Multi-Layer And Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.942mil|Location2.X=3101.191mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,3.81mm) on Multi-Layer And Pad J3-4(-20.015mm,3.81mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3294.745mil|Location2.Y=3300.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,3.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=2994.745mil|Location2.Y=3000.994mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-(-21.265mm,-3.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=2975.06mil|Location2.Y=2981.309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=2975.06mil|Location2.Y=2981.309mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3053.8mil|Location2.Y=3060.049mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3053.8mil|Location2.Y=3060.049mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3132.54mil|Location2.Y=3138.789mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3132.54mil|Location2.Y=3138.789mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-3(-20.015mm,0.19mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3275.06mil|Location2.Y=3281.309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.944mil|Location2.X=3101.193mil|Location1.Y=3275.06mil|Location2.Y=3281.309mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J3-4(-20.015mm,3.81mm) on Multi-Layer And Track (-21.265mm,-6.851mm)(-21.265mm,6.851mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(0.19mm,-28.915mm) on Multi-Layer And Pad J6-3(0.19mm,-27.665mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(0.19mm,-28.915mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(-1.81mm,-28.915mm) on Multi-Layer And Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(-1.81mm,-28.915mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(-3.81mm,-28.915mm) on Multi-Layer And Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(3.81mm,-28.915mm) on Multi-Layer And Pad J6-4(3.81mm,-27.665mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(3.81mm,-28.915mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(-3.81mm,-28.915mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.461mil|Location2.X=3768.711mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.461mil|Location2.X=3768.711mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.202mil|Location2.X=3847.451mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.202mil|Location2.X=3847.451mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.942mil|Location2.X=3926.191mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.942mil|Location2.X=3926.191mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-3(0.19mm,-27.665mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4062.461mil|Location2.X=4068.711mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4062.461mil|Location2.X=4068.711mil|Location1.Y=2006.359mil|Location2.Y=2012.608mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-4(3.81mm,-27.665mm) on Multi-Layer And Track (-7.7mm,-28.915mm)(7.7mm,-28.915mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(0.19mm,21.3mm) on Multi-Layer And Pad J7-3(0.19mm,20.05mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.627mil|Location2.X=3945.876mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(0.19mm,21.3mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-1.81mm,21.3mm) on Multi-Layer And Pad J7-2(-1.81mm,20.05mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-1.81mm,21.3mm) on Multi-Layer And Track (-1.81mm,17.175mm)(-1.81mm,21.3mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-1.81mm,21.3mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-3.81mm,21.3mm) on Multi-Layer And Pad J7-1(-3.81mm,20.05mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(3.81mm,21.3mm) on Multi-Layer And Pad J7-4(3.81mm,20.05mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-3.81mm,21.3mm) on Multi-Layer And Track (-3.81mm,18.015mm)(-3.81mm,21.3mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4082.146mil|Location2.X=4088.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(3.81mm,21.3mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(-3.81mm,21.3mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.461mil|Location2.X=3768.711mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.461mil|Location2.X=3768.711mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-1(-3.81mm,20.05mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.202mil|Location2.X=3847.451mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.202mil|Location2.X=3847.451mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-2(-1.81mm,20.05mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.942mil|Location2.X=3926.191mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.942mil|Location2.X=3926.191mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-3(0.19mm,20.05mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4062.461mil|Location2.X=4068.711mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4062.461mil|Location2.X=4068.711mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-4(3.81mm,20.05mm) on Multi-Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4301.772mil|Location2.X=4310.946mil|Location1.Y=2975.985mil|Location2.Y=2985.108mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4301.772mil|Location2.X=4310.946mil|Location1.Y=2975.985mil|Location2.Y=2985.108mil|Absolute=True">Clearance Constraint: (0.18mm &lt; 0.2mm) Between Pad U1-1(9.875mm,-4.05mm) on Top Layer And Pad U1-24(9.25mm,-4.725mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4189.567mil|Location2.X=4198.741mil|Location1.Y=3090.158mil|Location2.Y=3099.282mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4189.567mil|Location2.X=4198.741mil|Location1.Y=3090.158mil|Location2.Y=3099.282mil|Absolute=True">Clearance Constraint: (0.18mm &lt; 0.2mm) Between Pad U1-12(6.75mm,-0.875mm) on Top Layer And Pad U1-13(6.125mm,-1.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4189.567mil|Location2.X=4198.691mil|Location1.Y=2975.985mil|Location2.Y=2985.108mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4189.567mil|Location2.X=4198.691mil|Location1.Y=2975.985mil|Location2.Y=2985.108mil|Absolute=True">Clearance Constraint: (0.18mm &lt; 0.2mm) Between Pad U1-18(6.125mm,-4.05mm) on Top Layer And Pad U1-19(6.75mm,-4.725mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4301.772mil|Location2.X=4310.896mil|Location1.Y=3090.158mil|Location2.Y=3099.282mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4301.772mil|Location2.X=4310.896mil|Location1.Y=3090.158mil|Location2.Y=3099.282mil|Absolute=True">Clearance Constraint: (0.18mm &lt; 0.2mm) Between Pad U1-6(9.875mm,-1.55mm) on Top Layer And Pad U1-7(9.25mm,-0.875mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.887mil|Location2.X=3867.136mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Track (-1.81mm,17.175mm)(-1.81mm,21.3mm) on Bottom Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.146mil|Location2.X=3788.396mil|Location1.Y=3983.327mil|Location2.Y=3989.577mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Track (-3.81mm,18.015mm)(-3.81mm,21.3mm) on Bottom Layer And Track (-6.851mm,21.3mm)(6.851mm,21.3mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDMK23SSVQTJRYBB04R2E40K1YIFUBJES4GFDHRVOZT1HRYAZ2G"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3131.82mil|Location2.Y=3178.88mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3131.82mil|Location2.Y=3178.88mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-(21.265mm,0.19mm) on Multi-Layer And Pad J1-3(20.015mm,0.19mm) on Multi-Layer Location : [X = 120.97mm][Y = 80.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3053.08mil|Location2.Y=3100.139mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3053.08mil|Location2.Y=3100.139mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-(21.265mm,-1.81mm) on Multi-Layer And Pad J1-2(20.015mm,-1.81mm) on Multi-Layer Location : [X = 120.97mm][Y = 78.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.728mil|Location2.X=4764.728mil|Location1.Y=3069.687mil|Location2.Y=3085.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.728mil|Location2.X=4764.728mil|Location1.Y=3069.687mil|Location2.Y=3085.687mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-(21.265mm,-1.81mm) on Multi-Layer And Track (18.112mm,-1.783mm)(20.838mm,-1.783mm) on Bottom Layer Location : [X = 120.821mm][Y = 78.173mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=2974.34mil|Location2.Y=3021.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=2974.34mil|Location2.Y=3021.399mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-(21.265mm,-3.81mm) on Multi-Layer And Pad J1-1(20.015mm,-3.81mm) on Multi-Layer Location : [X = 120.97mm][Y = 76.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3274.34mil|Location2.Y=3321.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4739.056mil|Location2.X=4786.115mil|Location1.Y=3274.34mil|Location2.Y=3321.399mil|Absolute=True">Short-Circuit Constraint: Between Pad J1-(21.265mm,3.81mm) on Multi-Layer And Pad J1-4(20.015mm,3.81mm) on Multi-Layer Location : [X = 120.97mm][Y = 83.766mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3131.82mil|Location2.Y=3178.88mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3131.82mil|Location2.Y=3178.88mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-(-21.265mm,0.19mm) on Multi-Layer And Pad J3-3(-20.015mm,0.19mm) on Multi-Layer Location : [X = 78.942mm][Y = 80.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3053.08mil|Location2.Y=3100.14mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3053.08mil|Location2.Y=3100.14mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-(-21.265mm,-1.81mm) on Multi-Layer And Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer Location : [X = 78.942mm][Y = 78.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=2974.34mil|Location2.Y=3021.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=2974.34mil|Location2.Y=3021.399mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-(-21.265mm,-3.81mm) on Multi-Layer And Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer Location : [X = 78.942mm][Y = 76.146mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3274.34mil|Location2.Y=3321.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.427mil|Location2.X=3131.486mil|Location1.Y=3274.34mil|Location2.Y=3321.399mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-(-21.265mm,3.81mm) on Multi-Layer And Pad J3-4(-20.015mm,3.81mm) on Multi-Layer Location : [X = 78.942mm][Y = 83.766mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.222mil|Location2.X=3966.281mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.222mil|Location2.X=3966.281mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(0.19mm,-28.915mm) on Multi-Layer And Pad J6-3(0.19mm,-27.665mm) on Multi-Layer Location : [X = 100.146mm][Y = 51.292mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.481mil|Location2.X=3887.541mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.481mil|Location2.X=3887.541mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(-1.81mm,-28.915mm) on Multi-Layer And Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer Location : [X = 98.146mm][Y = 51.292mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.741mil|Location2.X=3808.801mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.741mil|Location2.X=3808.801mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(-3.81mm,-28.915mm) on Multi-Layer And Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer Location : [X = 96.146mm][Y = 51.292mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.741mil|Location2.X=4108.801mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.741mil|Location2.X=4108.801mil|Location1.Y=1995.844mil|Location2.Y=2042.903mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(3.81mm,-28.915mm) on Multi-Layer And Pad J6-4(3.81mm,-27.665mm) on Multi-Layer Location : [X = 103.766mm][Y = 51.292mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.222mil|Location2.X=3966.281mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3919.222mil|Location2.X=3966.281mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(0.19mm,21.3mm) on Multi-Layer And Pad J7-3(0.19mm,20.05mm) on Multi-Layer Location : [X = 100.146mm][Y = 101.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.481mil|Location2.X=3887.541mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.481mil|Location2.X=3887.541mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(-1.81mm,21.3mm) on Multi-Layer And Pad J7-2(-1.81mm,20.05mm) on Multi-Layer Location : [X = 98.146mm][Y = 101.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.068mil|Location2.X=3878.954mil|Location1.Y=3964.168mil|Location2.Y=3994.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.068mil|Location2.X=3878.954mil|Location1.Y=3964.168mil|Location2.Y=3994.054mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(-1.81mm,21.3mm) on Multi-Layer And Track (-1.81mm,17.175mm)(-1.81mm,21.3mm) on Bottom Layer Location : [X = 98.146mm][Y = 101.069mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.741mil|Location2.X=3808.801mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3761.741mil|Location2.X=3808.801mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(-3.81mm,21.3mm) on Multi-Layer And Pad J7-1(-3.81mm,20.05mm) on Multi-Layer Location : [X = 96.146mm][Y = 101.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.741mil|Location2.X=4108.801mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.741mil|Location2.X=4108.801mil|Location1.Y=3953.032mil|Location2.Y=4000.092mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(3.81mm,21.3mm) on Multi-Layer And Pad J7-4(3.81mm,20.05mm) on Multi-Layer Location : [X = 103.766mm][Y = 101.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.328mil|Location2.X=3800.214mil|Location1.Y=3964.168mil|Location2.Y=3994.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.328mil|Location2.X=3800.214mil|Location1.Y=3964.168mil|Location2.Y=3994.054mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(-3.81mm,21.3mm) on Multi-Layer And Track (-3.81mm,18.015mm)(-3.81mm,21.3mm) on Bottom Layer Location : [X = 96.146mm][Y = 101.069mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDWHWDK3QZI5VLD024INZS3CWV0IV01NHBQUUHUCPJ0XUZA2WACR2"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.253mil|Location2.X=3950.503mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3939.253mil|Location2.X=3950.503mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (0.19mm,19.3mm) on Top Overlay And Pad J7-3(0.19mm,20.05mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.723mil|Location2.X=3969.973mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.723mil|Location2.X=3969.973mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (0.19mm,-26.915mm) on Top Overlay And Pad J6-3(0.19mm,-27.665mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.513mil|Location2.X=3871.763mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.513mil|Location2.X=3871.763mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-1.81mm,19.3mm) on Top Overlay And Pad J7-2(-1.81mm,20.05mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.983mil|Location2.X=3891.233mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.983mil|Location2.X=3891.233mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-1.81mm,-26.915mm) on Top Overlay And Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4349.928mil|Location2.X=4361.178mil|Location1.Y=2684.444mil|Location2.Y=2695.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4349.928mil|Location2.X=4361.178mil|Location1.Y=2684.444mil|Location2.Y=2695.694mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.07mm &lt; 0.254mm) Between Arc (10.8mm,-10.6mm) on Bottom Overlay And Pad TP2-1(10.8mm,-10.6mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0.07mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4471.35mil|Location2.X=4482.6mil|Location1.Y=2826.15mil|Location2.Y=2837.4mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4471.35mil|Location2.X=4482.6mil|Location1.Y=2826.15mil|Location2.Y=2837.4mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.07mm &lt; 0.254mm) Between Arc (13.884mm,-7.001mm) on Bottom Overlay And Pad TP1-1(13.884mm,-7.001mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0.07mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3151.852mil|Location2.Y=3163.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3151.852mil|Location2.Y=3163.102mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (19.265mm,0.19mm) on Top Overlay And Pad J1-3(20.015mm,0.19mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3128.128mil|Location2.Y=3139.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3128.128mil|Location2.Y=3139.378mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-19.265mm,0.19mm) on Top Overlay And Pad J3-3(-20.015mm,0.19mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3073.112mil|Location2.Y=3084.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3073.112mil|Location2.Y=3084.362mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (19.265mm,-1.81mm) on Top Overlay And Pad J1-2(20.015mm,-1.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3049.388mil|Location2.Y=3060.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3049.388mil|Location2.Y=3060.638mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-19.265mm,-1.81mm) on Top Overlay And Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=2994.371mil|Location2.Y=3005.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=2994.371mil|Location2.Y=3005.621mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (19.265mm,-3.81mm) on Top Overlay And Pad J1-1(20.015mm,-3.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3294.371mil|Location2.Y=3305.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4666.514mil|Location2.X=4677.764mil|Location1.Y=3294.371mil|Location2.Y=3305.621mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (19.265mm,3.81mm) on Top Overlay And Pad J1-4(20.015mm,3.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=2970.648mil|Location2.Y=2981.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=2970.648mil|Location2.Y=2981.898mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-19.265mm,-3.81mm) on Top Overlay And Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3270.648mil|Location2.Y=3281.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.309mil|Location2.X=3184.559mil|Location1.Y=3270.648mil|Location2.Y=3281.898mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-19.265mm,3.81mm) on Top Overlay And Pad J3-4(-20.015mm,3.81mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.773mil|Location2.X=3793.023mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.773mil|Location2.X=3793.023mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-3.81mm,19.3mm) on Top Overlay And Pad J7-1(-3.81mm,20.05mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.773mil|Location2.X=4093.023mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.773mil|Location2.X=4093.023mil|Location1.Y=3880.49mil|Location2.Y=3891.74mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (3.81mm,19.3mm) on Top Overlay And Pad J7-4(3.81mm,20.05mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.243mil|Location2.X=3812.493mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.243mil|Location2.X=3812.493mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (-3.81mm,-26.915mm) on Top Overlay And Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.243mil|Location2.X=4112.493mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.243mil|Location2.X=4112.493mil|Location1.Y=2084.726mil|Location2.Y=2095.976mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Arc (3.81mm,-26.915mm) on Top Overlay And Pad J6-4(3.81mm,-27.665mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3151.882mil|Location2.Y=3163.132mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3151.882mil|Location2.Y=3163.132mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C1-1(5.76mm,0.729mm) on Top Layer And Track (5.71mm,0.071mm)(7.31mm,0.071mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3189.992mil|Location2.Y=3201.242mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3189.992mil|Location2.Y=3201.242mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C1-1(5.76mm,0.729mm) on Top Layer And Track (5.71mm,1.387mm)(7.31mm,1.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3151.882mil|Location2.Y=3163.132mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3151.882mil|Location2.Y=3163.132mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C1-2(7.26mm,0.729mm) on Top Layer And Track (5.71mm,0.071mm)(7.31mm,0.071mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3189.992mil|Location2.Y=3201.242mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3189.992mil|Location2.Y=3201.242mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C1-2(7.26mm,0.729mm) on Top Layer And Track (5.71mm,1.387mm)(7.31mm,1.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3214.874mil|Location2.Y=3226.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3214.874mil|Location2.Y=3226.124mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C2-1(5.76mm,2.329mm) on Top Layer And Track (5.71mm,1.671mm)(7.31mm,1.671mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3252.984mil|Location2.Y=3264.234mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.157mil|Location2.X=4183.407mil|Location1.Y=3252.984mil|Location2.Y=3264.234mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C2-1(5.76mm,2.329mm) on Top Layer And Track (5.71mm,2.987mm)(7.31mm,2.987mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3214.874mil|Location2.Y=3226.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3214.874mil|Location2.Y=3226.124mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C2-2(7.26mm,2.329mm) on Top Layer And Track (5.71mm,1.671mm)(7.31mm,1.671mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3252.984mil|Location2.Y=3264.234mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4199.716mil|Location2.X=4210.966mil|Location1.Y=3252.984mil|Location2.Y=3264.234mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.168mm &lt; 0.254mm) Between Pad C2-2(7.26mm,2.329mm) on Top Layer And Track (5.71mm,2.987mm)(7.31mm,2.987mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.168mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3013.898mil|Location2.Y=3025.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3013.898mil|Location2.Y=3025.148mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-1(20.015mm,-3.81mm) on Multi-Layer And Track (19.265mm,-3.16mm)(21.265mm,-3.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=2970.591mil|Location2.Y=2981.841mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=2970.591mil|Location2.Y=2981.841mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-1(20.015mm,-3.81mm) on Multi-Layer And Track (19.265mm,-4.46mm)(21.265mm,-4.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3092.638mil|Location2.Y=3103.888mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3092.638mil|Location2.Y=3103.888mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-2(20.015mm,-1.81mm) on Multi-Layer And Track (19.265mm,-1.16mm)(21.265mm,-1.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3049.331mil|Location2.Y=3060.581mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3049.331mil|Location2.Y=3060.581mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-2(20.015mm,-1.81mm) on Multi-Layer And Track (19.265mm,-2.46mm)(21.265mm,-2.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3128.071mil|Location2.Y=3139.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3128.071mil|Location2.Y=3139.321mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-3(20.015mm,0.19mm) on Multi-Layer And Track (19.265mm,-0.46mm)(21.265mm,-0.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3171.378mil|Location2.Y=3182.628mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3171.378mil|Location2.Y=3182.628mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-3(20.015mm,0.19mm) on Multi-Layer And Track (19.265mm,0.84mm)(21.265mm,0.84mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3270.591mil|Location2.Y=3281.841mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.851mil|Location2.X=4778.101mil|Location1.Y=3270.591mil|Location2.Y=3281.841mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-4(20.015mm,3.81mm) on Multi-Layer And Track (19.265mm,3.16mm)(21.265mm,3.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3313.898mil|Location2.Y=3325.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.11mil|Location2.X=4699.36mil|Location1.Y=3313.898mil|Location2.Y=3325.148mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J1-4(20.015mm,3.81mm) on Multi-Layer And Track (19.265mm,4.46mm)(21.265mm,4.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3013.898mil|Location2.Y=3025.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3013.898mil|Location2.Y=3025.148mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer And Track (-21.265mm,-3.16mm)(-19.265mm,-3.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=2970.591mil|Location2.Y=2981.841mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=2970.591mil|Location2.Y=2981.841mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-1(-20.015mm,-3.81mm) on Multi-Layer And Track (-21.265mm,-4.46mm)(-19.265mm,-4.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3092.638mil|Location2.Y=3103.888mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3092.638mil|Location2.Y=3103.888mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer And Track (-21.265mm,-1.16mm)(-19.265mm,-1.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3049.331mil|Location2.Y=3060.581mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3049.331mil|Location2.Y=3060.581mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-2(-20.015mm,-1.81mm) on Multi-Layer And Track (-21.265mm,-2.46mm)(-19.265mm,-2.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3128.071mil|Location2.Y=3139.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3128.071mil|Location2.Y=3139.321mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-3(-20.015mm,0.19mm) on Multi-Layer And Track (-21.265mm,-0.46mm)(-19.265mm,-0.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3171.378mil|Location2.Y=3182.628mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3171.378mil|Location2.Y=3182.628mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-3(-20.015mm,0.19mm) on Multi-Layer And Track (-21.265mm,0.84mm)(-19.265mm,0.84mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3270.591mil|Location2.Y=3281.841mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3270.591mil|Location2.Y=3281.841mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-4(-20.015mm,3.81mm) on Multi-Layer And Track (-21.265mm,3.16mm)(-19.265mm,3.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3313.898mil|Location2.Y=3325.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.441mil|Location2.X=3103.691mil|Location1.Y=3313.898mil|Location2.Y=3325.148mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J3-4(-20.015mm,3.81mm) on Multi-Layer And Track (-21.265mm,4.46mm)(-19.265mm,4.46mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.3mil|Location2.X=3812.55mil|Location1.Y=2082.599mil|Location2.Y=2093.849mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.3mil|Location2.X=3812.55mil|Location1.Y=2082.599mil|Location2.Y=2093.849mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer And Track (-3.16mm,-26.915mm)(-3.16mm,-28.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3757.992mil|Location2.X=3769.242mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3757.992mil|Location2.X=3769.242mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-1(-3.81mm,-27.665mm) on Multi-Layer And Track (-4.46mm,-28.915mm)(-4.46mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3880.04mil|Location2.X=3891.29mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3880.04mil|Location2.X=3891.29mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer And Track (-1.16mm,-28.915mm)(-1.16mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.733mil|Location2.X=3847.983mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.733mil|Location2.X=3847.983mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-2(-1.81mm,-27.665mm) on Multi-Layer And Track (-2.46mm,-28.915mm)(-2.46mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3915.473mil|Location2.X=3926.723mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3915.473mil|Location2.X=3926.723mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-3(0.19mm,-27.665mm) on Multi-Layer And Track (-0.46mm,-28.915mm)(-0.46mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.78mil|Location2.X=3970.03mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.78mil|Location2.X=3970.03mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-3(0.19mm,-27.665mm) on Multi-Layer And Track (0.84mm,-28.915mm)(0.84mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4057.992mil|Location2.X=4069.242mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4057.992mil|Location2.X=4069.242mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-4(3.81mm,-27.665mm) on Multi-Layer And Track (3.16mm,-28.915mm)(3.16mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.3mil|Location2.X=4112.55mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.3mil|Location2.X=4112.55mil|Location1.Y=2003.859mil|Location2.Y=2015.109mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J6-4(3.81mm,-27.665mm) on Multi-Layer And Track (4.46mm,-28.915mm)(4.46mm,-26.915mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.3mil|Location2.X=3812.55mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3801.3mil|Location2.X=3812.55mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-1(-3.81mm,20.05mm) on Multi-Layer And Track (-3.16mm,19.3mm)(-3.16mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3757.992mil|Location2.X=3769.242mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3757.992mil|Location2.X=3769.242mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-1(-3.81mm,20.05mm) on Multi-Layer And Track (-4.46mm,19.3mm)(-4.46mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3880.04mil|Location2.X=3891.29mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3880.04mil|Location2.X=3891.29mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-2(-1.81mm,20.05mm) on Multi-Layer And Track (-1.16mm,19.3mm)(-1.16mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.733mil|Location2.X=3847.983mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.733mil|Location2.X=3847.983mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-2(-1.81mm,20.05mm) on Multi-Layer And Track (-2.46mm,19.3mm)(-2.46mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3915.473mil|Location2.X=3926.723mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3915.473mil|Location2.X=3926.723mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-3(0.19mm,20.05mm) on Multi-Layer And Track (-0.46mm,19.3mm)(-0.46mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.78mil|Location2.X=3970.03mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.78mil|Location2.X=3970.03mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-3(0.19mm,20.05mm) on Multi-Layer And Track (0.84mm,19.3mm)(0.84mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4057.992mil|Location2.X=4069.242mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4057.992mil|Location2.X=4069.242mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-4(3.81mm,20.05mm) on Multi-Layer And Track (3.16mm,19.3mm)(3.16mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.3mil|Location2.X=4112.55mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Rat\Pot_Rat.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.3mil|Location2.X=4112.55mil|Location1.Y=3902.087mil|Location2.Y=3913.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad J7-4(3.81mm,20.05mm) on Multi-Layer And Track (4.46mm,19.3mm)(4.46mm,21.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,4 @@
+Added Component: Designator=J5(01x01_Header_2.54mm_MAL)
+Added Pin To Net: NetName=NetJ4_2 Pin=J5-1
+Added Member To Class: ClassName=Top Member=Component D7 LED
+Added Member To Class: ClassName=Top Member=Component J5 Pin_Header_01x01
